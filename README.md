@@ -1,4 +1,5 @@
 # Hello i'm Algam 👋
 
 
-![Snake animation]([https://github.com/AlgamOnline/AlgamOnline/blob/output/snake.svg])
+![Snake animation](https://raw.githubusercontent.com/AlgamOnline/AlgamOnline/output/dist/snake.svg)
+
