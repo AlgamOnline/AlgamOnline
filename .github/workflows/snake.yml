@@ -1,27 +1,29 @@
-name: 🐍 Generate SnakeMan Animation
+name: Generate Snake Animation
 
 on:
   schedule:
-    # Jalankan setiap hari jam 00:00 UTC
-    - cron: "0 0 * * *"
-  workflow_dispatch:  # Bisa dijalankan manual lewat Actions
+    - cron: "0 */6 * * *"  # jalan tiap 6 jam
+  workflow_dispatch:        # bisa dijalankan manual
 
 jobs:
   build:
-    name: generate snake
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Generate Snake animation
-        uses: Platane/snk@v3
+      - name: Generate Snake SVG
+        uses: Platane/snk/svg-only@v3
         with:
-          github_user_name: AlgamOnline     # ⚠️ username GitHub kamu persis seperti ini
+          github_user_name: AlgamOnline
           outputs: dist/snake.svg
 
-      - name: Push snake animation to the output branch
+      - name: Tampilkan hasil (debug)
+        run: ls -R dist || echo "Folder dist kosong"
+
+      - name: Push snake animation to output branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
