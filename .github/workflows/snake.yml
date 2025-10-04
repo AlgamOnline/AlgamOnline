@@ -1,10 +1,10 @@
-name: Snake Animation
+name: 🐍 Generate SnakeMan Animation
 
 on:
   schedule:
-    # Jalankan otomatis setiap hari jam 00:00 UTC
+    # Jalankan setiap hari jam 00:00 UTC
     - cron: "0 0 * * *"
-  workflow_dispatch:  # Bisa dijalankan manual lewat menu Actions
+  workflow_dispatch:  # Bisa dijalankan manual lewat Actions
 
 jobs:
   build:
@@ -18,11 +18,8 @@ jobs:
       - name: Generate Snake animation
         uses: Platane/snk@v3
         with:
-          github_user_name: AlgamOnline
+          github_user_name: AlgamOnline     # ⚠️ username GitHub kamu persis seperti ini
           outputs: dist/snake.svg
-          # tema warna opsional:
-          # color_snake: "#00FF88"
-          # color_dots: "#1a1a1a"
 
       - name: Push snake animation to the output branch
         uses: crazy-max/ghaction-github-pages@v4
